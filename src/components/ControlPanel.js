@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import Backpack from "./Backpack";
+import Battle from "./Battle";
 import Grimoire from "./Grimoire";
 import Options from "./Options";
+import Roll from "./Roll";
 import { useAlert } from 'react-alert'
 import { Fab } from "./styled/UIButtons";
 import { UIControlPanel, UIControlPanelTitle, UIControlPanelMoreLess } from "./styled/UIControlPanel";
@@ -105,9 +107,9 @@ const ControlPanel = ({
           <UIControlPanelTitle>Others</UIControlPanelTitle>
           {editNumberedStats("adv", adventure, true)}
           <UIControlPanelTitle>Battle</UIControlPanelTitle>
-          <div>TODO</div>
+          <Battle>TODO</Battle>
           <UIControlPanelTitle>Roll</UIControlPanelTitle>
-          <div>TODO</div>
+          <Roll>TODO</Roll>
           <UIControlPanelTitle>Grimoire</UIControlPanelTitle>
           <Grimoire />
           <UIControlPanelTitle>Options</UIControlPanelTitle>
