@@ -6,7 +6,7 @@ export const Fab = styled.div`
   color: black;
   font-family: "Nota Sans", sans-serif;
   font-size: 52px;
-  line-height: 60px;
+  line-height: 70px;
   text-align: center;
   box-shadow: 0 6px 10px 0 #666;
   border-radius: 50px;
@@ -54,7 +54,7 @@ export const UIButton = styled.div`
   ${(props) =>
     props.circle &&
     css`
-      line-height: 10px;
+      line-height: 15px;
     `};
 
   padding: 5px;
