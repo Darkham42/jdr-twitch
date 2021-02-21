@@ -24,31 +24,31 @@ export const UIPortrait = styled.div`
 
 export const UIStamina = styled.div`
   position: absolute;
-  left: 14.5%;
-  top: 22.5%;
+  left: 15%;
+  top: 20%;
 `;
 
 export const UISkills = styled.div`
   position: absolute;
   left: 22.5%;
-  top: 16%;
+  top: 14%;
 `;
 
 export const UILuck = styled.div`
   position: absolute;
   left: 22.25%;
-  top: 29.5%;
+  top: 27.5%;
 `;
 export const UIGold = styled.div`
   position: absolute;
   left: 21%;
-  top: 83.5%;
+  top: 82%;
 `;
 
 export const UIBackpack = styled.div`
   position: absolute;
   white-space: pre-wrap;
-  font-size: 1.75vw;
+  font-size: 1.5vw;
   line-height: 125%;
   left: 23.5%;
   top: 47%;

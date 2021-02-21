@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const UIControlPanel = styled.div`
+  font-family: "Nota Sans", sans-serif;
   position: absolute;
   background-color: #ece4a2;
   font-size: 20px;

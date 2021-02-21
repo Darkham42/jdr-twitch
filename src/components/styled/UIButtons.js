@@ -4,6 +4,7 @@ export const Fab = styled.div`
   position: absolute;
   background-color: #e8c60a;
   color: black;
+  font-family: "Nota Sans", sans-serif;
   font-size: 52px;
   line-height: 60px;
   text-align: center;
