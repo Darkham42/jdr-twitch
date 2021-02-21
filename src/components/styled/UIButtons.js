@@ -22,7 +22,7 @@ export const Fab = styled.div`
   }
 `;
 
-export const UIToolButton = styled.div`
+export const UIButton = styled.div`
   ${(props) =>
     props.disabled
       ? css`

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const UITools = styled.div`
+export const UIControlPanel = styled.div`
   position: absolute;
   background-color: #ece4a2;
   font-size: 20px;
@@ -14,7 +14,7 @@ export const UITools = styled.div`
   padding: 20px;
 `;
 
-export const UIToolsTitle = styled.div`
+export const UIControlPanelTitle = styled.div`
   text-transform: uppercase;
   margin: 20px 0 20px 0;
   background-color: #b5a383;
@@ -26,7 +26,7 @@ export const UIToolsTitle = styled.div`
   }
 `;
 
-export const UIToolMoreLess = styled.div`
+export const UIControlPanelMoreLess = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -35,7 +35,7 @@ export const UIToolMoreLess = styled.div`
   margin-bottom: 5px;
 `;
 
-export const UIToolInput = styled.input`
+export const UIControlPanelInput = styled.input`
   background: none;
   display: block;
   border: none;
@@ -45,7 +45,7 @@ export const UIToolInput = styled.input`
   text-align: center;
 `;
 
-export const UITable = styled.table`
+export const UIControlPanelTable = styled.table`
   border-collapse: collapse;
   border: 2px solid #b5a383;
   font-size: 0.8rem;

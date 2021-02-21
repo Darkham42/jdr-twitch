@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Tools from "./components/Tools";
+import ControlPanel from "./components/ControlPanel";
 import Panel from "./components/Panel";
 import { createCharacter, getItem, setHistory, storageAvailable } from "./utils/tools";
 import "./App.css";
@@ -56,7 +56,7 @@ function App() {
   return storedCharacter && storedBackpack && storedAdventure ? (
     <>
       <Panel adventure={storedAdventure} backpack={storedBackpack} character={storedCharacter} />
-      <Tools
+      <ControlPanel
         adventure={storedAdventure}
         backpack={storedBackpack}
         character={storedCharacter}
