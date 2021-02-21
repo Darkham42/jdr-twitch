@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const UICharacterInfo = styled.div`
-  background-color: none;
+  background-color: ${(props) => props.backgroundColor};
   width: 100vw;
   height: 100vh;
   font-size: 2.5vw;

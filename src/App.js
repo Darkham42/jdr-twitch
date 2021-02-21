@@ -9,6 +9,7 @@ function App() {
   const [storedBackpack, setStoredBackpack] = useState(null);
   const [storedCharacter, setStoredCharacter] = useState(null);
   const [storedInitialCharacter, setStoredInitialCharacter] = useState(null);
+  const [backgroundColor, setBackgroundColor] = useState("#231F41");
 
   const initApp = () => {
     if (storageAvailable("localStorage")) {
@@ -16,6 +17,11 @@ function App() {
       const backpack = getItem("backpack");
       const character = getItem("character");
       const initial = getItem("initial");
+      const background = getItem("jdr-background-color");
+
+      if (background) {
+        setBackgroundColor(background);
+      }
 
       if (!character && !initial) {
         createCharacter("", setStoredAdventure, setStoredBackpack, setStoredCharacter, setStoredInitialCharacter);
@@ -34,6 +40,12 @@ function App() {
     initApp();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  useEffect(() => {
+    if (backgroundColor) {
+      setHistory("jdr-background-color", backgroundColor);
+    }
+  }, [backgroundColor]);
 
   useEffect(() => {
     if (storedAdventure) {
@@ -55,7 +67,12 @@ function App() {
 
   return storedCharacter && storedBackpack && storedAdventure ? (
     <>
-      <Panel adventure={storedAdventure} backpack={storedBackpack} character={storedCharacter} />
+      <Panel
+        adventure={storedAdventure}
+        backpack={storedBackpack}
+        character={storedCharacter}
+        backgroundColor={backgroundColor}
+      />
       <ControlPanel
         adventure={storedAdventure}
         backpack={storedBackpack}
@@ -64,6 +81,8 @@ function App() {
         setStoredAdventure={setStoredAdventure}
         setStoredBackpack={setStoredBackpack}
         setStoredCharacter={setStoredCharacter}
+        backgroundColor={backgroundColor}
+        setBackgroundColor={setBackgroundColor}
       />
     </>
   ) : (

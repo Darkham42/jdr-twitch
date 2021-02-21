@@ -82,3 +82,9 @@ export const UIControlPanelTable = styled.table`
     }
   }
 `;
+
+export const UIControlPanelOptionsTitle = styled.div`
+  margin-bottom: 10px;
+  font-size: 0.7em;
+  text-align: left;
+`;

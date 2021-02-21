@@ -1,15 +1,11 @@
 import React, { useState } from "react";
-import { Fab } from "./styled/UIButtons";
-import {
-  UIControlPanel,
-  UIControlPanelTitle,
-  UIControlPanelMoreLess,
-  UIControlPanelInput,
-  UIControlPanelTable,
-} from "./styled/UIControlPanel";
-import { UIButton } from "./styled/UIButtons";
-import Grimoire from "./Grimoire";
 import Backpack from "./Backpack";
+import Grimoire from "./Grimoire";
+import Options from "./Options";
+
+import { Fab } from "./styled/UIButtons";
+import { UIControlPanel, UIControlPanelTitle, UIControlPanelMoreLess } from "./styled/UIControlPanel";
+import { UIButton } from "./styled/UIButtons";
 
 const ControlPanel = ({
   adventure,
@@ -19,6 +15,8 @@ const ControlPanel = ({
   setStoredAdventure,
   setStoredBackpack,
   setStoredCharacter,
+  backgroundColor,
+  setBackgroundColor,
 }) => {
   const [displayControlPanel, setDisplayControlPanel] = useState(true);
 
@@ -81,7 +79,12 @@ const ControlPanel = ({
         );
       } else if (typeof object[key] === "boolean" && boolOnly) {
         return (
-          <UIButton key={key} disabled={!object[key]} content={key} onClick={() => (type === "char" ? changeCharacter(key) : changeAdventure(key))} />
+          <UIButton
+            key={key}
+            disabled={!object[key]}
+            content={key}
+            onClick={() => (type === "char" ? changeCharacter(key) : changeAdventure(key))}
+          />
         );
       } else {
         return null;
@@ -106,6 +109,8 @@ const ControlPanel = ({
           <div>TODO</div>
           <UIControlPanelTitle>Grimoire</UIControlPanelTitle>
           <Grimoire />
+          <UIControlPanelTitle>Options</UIControlPanelTitle>
+          <Options backgroundColor={backgroundColor} setBackgroundColor={setBackgroundColor} />
         </UIControlPanel>
       )}
       <Fab onClick={() => setDisplayControlPanel(!displayControlPanel)}>+</Fab>

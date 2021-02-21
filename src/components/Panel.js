@@ -10,11 +10,9 @@ import {
   UIBackpack,
 } from "./styled/UICharacterInfo";
 
-const Panel = (props) => {
-  const { adventure, backpack, character } = props;
-
+const Panel = ({ adventure, backpack, character, backgroundColor }) => {
   return (
-    <UICharacterInfo>
+    <UICharacterInfo backgroundColor={backgroundColor}>
       <UIPanels>
         <UIPortrait />
         <UIStamina>{character.stamina}</UIStamina>
