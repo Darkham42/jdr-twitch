@@ -5,6 +5,7 @@ export const Fab = styled.div`
   background-color: #e8c60a;
   color: black;
   font-size: 52px;
+  line-height: 60px;
   text-align: center;
   box-shadow: 0 6px 10px 0 #666;
   border-radius: 50px;
@@ -52,7 +53,7 @@ export const UIToolButton = styled.div`
   ${(props) =>
     props.circle &&
     css`
-      line-height: 13px;
+      line-height: 10px;
     `};
 
   padding: 5px;
