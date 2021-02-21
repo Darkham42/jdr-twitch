@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useAlert } from 'react-alert'
 import { UIButton } from "./styled/UIButtons";
 import { UIControlPanelInput, UIControlPanelTable } from "./styled/UIControlPanel";
 
@@ -7,12 +8,14 @@ const Backpack = ({ backpack, setStoredBackpack }) => {
   const [unit, setUnit] = useState(null);
   const [newItem, setNewItem] = useState(null);
   const [newItemUnit, setNewItemUnit] = useState(null);
+  const alert = useAlert()
 
   const addNewItem = () => {
     if (newItem && newItemUnit && newItemUnit > 0 && !backpack[newItem]) {
       const newBackpack = { ...backpack };
 
       newBackpack[newItem] = parseInt(newItemUnit);
+      alert.success(`Add ${newItem} into backpack !`)
       setStoredBackpack(newBackpack);
     }
 
@@ -25,8 +28,10 @@ const Backpack = ({ backpack, setStoredBackpack }) => {
 
     if (unit > 0) {
       newBackpack[editBackpack] = parseInt(unit);
+      alert.success(`Backpack with ${editBackpack} saved !`)
     } else {
       delete newBackpack[editBackpack];
+      alert.success(`Remove ${editBackpack} from backpack saved !`)
     }
 
     setStoredBackpack(newBackpack);
@@ -61,7 +66,10 @@ const Backpack = ({ backpack, setStoredBackpack }) => {
                     <UIButton circle key={`save-${item}`} onClick={() => saveEditBackpack()}>
                       ✓
                     </UIButton>
-                    <UIButton circle key={`cancel-${item}`} onClick={() => setEditBackpack(null)}>
+                    <UIButton circle key={`cancel-${item}`} onClick={() => {
+                      alert.info(`Cancel modification for ${item} !`)
+                      setEditBackpack(null)
+                    }}>
                       ⤫
                     </UIButton>
                   </>

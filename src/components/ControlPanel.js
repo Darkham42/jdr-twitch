@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Backpack from "./Backpack";
 import Grimoire from "./Grimoire";
 import Options from "./Options";
-
+import { useAlert } from 'react-alert'
 import { Fab } from "./styled/UIButtons";
 import { UIControlPanel, UIControlPanelTitle, UIControlPanelMoreLess } from "./styled/UIControlPanel";
 import { UIButton } from "./styled/UIButtons";
@@ -19,6 +19,7 @@ const ControlPanel = ({
   setBackgroundColor,
 }) => {
   const [displayControlPanel, setDisplayControlPanel] = useState(true);
+  const alert = useAlert()
 
   const changeAdventure = (attribut, type = "-") => {
     const newAdventure = { ...adventure };
@@ -28,7 +29,7 @@ const ControlPanel = ({
         newAdventure[attribut] = !newAdventure[attribut];
         setStoredAdventure(newAdventure);
       } else {
-        console.warn("ne peut être invoqué plusieurs fois");
+        alert.error("Libra can be invoked once !")
       }
     } else {
       if (type === "+") {
@@ -38,7 +39,7 @@ const ControlPanel = ({
       }
 
       if (newAdventure[attribut] < 0) {
-        console.warn("ne peut pas être en dessous");
+        alert.error(`${attribut} need to be > 0 !`)
       } else {
         setStoredAdventure(newAdventure);
       }
@@ -55,11 +56,11 @@ const ControlPanel = ({
     }
 
     if (newCharacter[attribut] < 0) {
-      console.warn("ne peut pas être en dessous");
+      alert.error(`${attribut} need to be > 0 !`)
     } else if (initial[attribut] >= newCharacter[attribut]) {
       setStoredCharacter(newCharacter);
     } else {
-      console.warn("ne peut être au dessus");
+      alert.error(`${attribut} can't be > initial value (${initial[attribut]}) !`)
     }
   };
 

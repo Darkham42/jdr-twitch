@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useAlert } from 'react-alert'
 import ControlPanel from "./components/ControlPanel";
 import Panel from "./components/Panel";
 import { createCharacter, getItem, setHistory, storageAvailable } from "./utils/tools";
@@ -10,6 +11,7 @@ function App() {
   const [storedCharacter, setStoredCharacter] = useState(null);
   const [storedInitialCharacter, setStoredInitialCharacter] = useState(null);
   const [backgroundColor, setBackgroundColor] = useState("#231F41");
+  const alert = useAlert()
 
   const initApp = () => {
     if (storageAvailable("localStorage")) {
@@ -26,7 +28,7 @@ function App() {
       if (!character && !initial) {
         createCharacter("", setStoredAdventure, setStoredBackpack, setStoredCharacter, setStoredInitialCharacter);
       } else if (!adventure && !backpack) {
-        console.warn("display erreur");
+        alert.error(`Unexpected error !`)
       } else {
         setStoredAdventure(adventure);
         setStoredBackpack(backpack);
